@@ -5,11 +5,9 @@ import Footer from './Footer';
 const Layout = ({ setSearchValue, searchValue }) => {
   return (
     <>
-      <>
-        <Header setSearchValue={setSearchValue} searchValue={searchValue} />
-        <Outlet />
-        <Footer />
-      </>
+      <Header setSearchValue={setSearchValue} searchValue={searchValue} />
+      <Outlet />
+      <Footer />
     </>
   );
 };

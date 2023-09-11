@@ -6,7 +6,6 @@ import Layout from './components/Layout';
 import { useState } from 'react';
 
 function App() {
-
   const [searchValue, setSearchValue] = useState('');
 
   return (
@@ -19,7 +18,13 @@ function App() {
           }
         >
           <Route index element={<Homepage searchValue={searchValue} />} />
-          <Route path="/:country" element={<Flag searchValue={searchValue} />} />
+
+          <Route
+            path="/:country"
+            element={
+              <Flag setSearchValue={setSearchValue} searchValue={searchValue} />
+            }
+          />
         </Route>
       </Routes>
     </div>

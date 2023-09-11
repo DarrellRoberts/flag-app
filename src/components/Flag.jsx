@@ -1,20 +1,39 @@
-import Map from "./Map";
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 
-export default function Flag({searchValue}) {
-    const [country, setCountry ] = useState([])
+export default function Flag() {
+  const [info, setInfo] = useState({});
+  const { country } = useParams();
+
+  useEffect(() => {
     const fetchCountry = async () => {
-        const res = await fetch("https://restcountries.com/v3.1/all")
+      try {
+        const res = await fetch(
+          `https://restcountries.com/v3.1/name/${country}`
+        );
         const data = await res.json();
-        setCountry(data);
-      };
-      useEffect(() => {
-        fetchCountry();
-      }, []);
-      const filteredArray = country.filter((item) => item.name.common.includes({searchValue}))
-    return (
-        <>
-              {filteredArray.map((info, index) => <Map key={index} info={info} />)}
-        </>
-    )
+
+        setInfo(data[0]);
+      } catch (error) {
+        console.error('Error fetching country data', error);
+      }
+    };
+
+    if (country) {
+      fetchCountry();
+    }
+  }, [country]);
+
+  console.log(info);
+  return (
+    <>
+      {info.name ? (
+        <div className="description">
+          <h2>{info.name.common}</h2>
+          <p>Capital: {info.capital}</p>
+          <p>{info.fifa}</p>
+        </div>
+      ) : null}
+    </>
+  );
 }
