@@ -32,8 +32,13 @@ export default function Flag() {
       {info.name ? (
         <div className="description">
           <h2>{info.name.common}</h2>
+          <img style={{width: "500px"}} src={info.flags.svg} alt="flag" /> 
+          <img style={{width: "200px"}} src={info.coatOfArms.svg} alt="coatofarms" />
           <p>Capital: {info.capital}</p>
-          <p>{info.fifa}</p>
+          <p>Continent: {info.region}</p>
+          <p>Population: {info.population}</p>
+          <p>Timezone: {info.timezones}</p>
+          <p>Abbreviation: {info.fifa}</p>
         <Map className="countryMap" info={info} />
         </div>
       ) : null}
