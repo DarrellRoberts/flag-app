@@ -1,4 +1,4 @@
-import { MapContainer, TileLayer, Marker } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { useState } from "react";
 import "leaflet/dist/leaflet.css";
 
@@ -19,13 +19,16 @@ export default function Map({info}) {
     console.log(longitude,latitude)
     return (
         <>
-        <button style={{padding: "20px", borderRadius: "20px", fontSize: "1rem", width:"20%"}}onClick={fetchCoordinates}> Click Here to view the map</button>
-        {showMap && (<MapContainer center={[longitude,latitude]} zoom={12}  scrollWheelZoom={false} style={{ height: '400px', width: '25%', borderStyle: "solid", borderColor: "black" }}>
+        <button className="mapButton" style={{padding: "10px", borderRadius: "20px", fontSize: "1rem", width:"15%"}}onClick={fetchCoordinates}> Click Here to view the map</button>
+        {showMap && (<MapContainer center={[longitude,latitude]} zoom={6}  scrollWheelZoom={false} style={{ height: '400px', width: '35%', borderStyle: "solid", borderColor: "black", borderRadius: "20px"}}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
       <Marker position={[longitude,latitude]}>
+        <Popup>
+            {info.capital}, {info.name.common}
+        </Popup>
       </Marker>
     </MapContainer>)}
         </>
