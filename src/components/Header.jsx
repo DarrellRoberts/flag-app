@@ -26,7 +26,7 @@ const Header = ({ setSearchValue, searchValue }) => {
   );
   const onSearch = (value, _e, info) => {
     console.log(info?.source, value);
-    setSearchValue('');
+    setSearchValue(value);
   };
   return (
     <header>
