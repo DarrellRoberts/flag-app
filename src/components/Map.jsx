@@ -1,6 +1,7 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useState } from "react";
 import "leaflet/dist/leaflet.css";
+import L from "leaflet";
 
 export default function Map({ info }) {
   const [longitude, setLongitude] = useState(0);
@@ -13,9 +14,7 @@ export default function Map({ info }) {
       setMap(true);
     }, 1000);
   };
-
-  console.log(info);
-  console.log(longitude, latitude);
+  L.Icon.Default.imagePath='img/';
   return (
     <>
         {" "}
