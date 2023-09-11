@@ -1,7 +1,6 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import { useState } from "react";
 import "leaflet/dist/leaflet.css";
-import L from "leaflet";
 
 export default function Map({ info }) {
   const [longitude, setLongitude] = useState(0);
@@ -14,22 +13,22 @@ export default function Map({ info }) {
       setMap(true);
     }, 1000);
   };
-  L.Icon.Default.imagePath='img/';
+
   return (
     <>
         {" "}
         {fetchCoordinates()}
       {showMap && (
-        <MapContainer
+        <MapContainer className="map"
           center={[longitude, latitude]}
           zoom={4}
           scrollWheelZoom={false}
           style={{
             height: "400px",
-            width: "35%",
+            width: "45%",
             borderStyle: "solid",
             borderColor: "black",
-            borderRadius: "20px",
+            borderRadius: "20px"
           }}
         >
           <TileLayer

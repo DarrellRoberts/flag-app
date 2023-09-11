@@ -31,15 +31,16 @@ export default function Flag() {
             <div className="flagContainer">
       {info.name ? (
         <div className="description">
-          <h2>{info.name.common}</h2>
-          <img style={{width: "500px"}} src={info.flags.svg} alt="flag" /> 
-          <img style={{width: "200px"}} src={info.coatOfArms.svg} alt="coatofarms" />
+          <h2 style={{textAlign: "center", paddingBottom: "0px", marginBottom: "3%"}}>{info.name.common}</h2>
+          <span><img className="flag" style={{width: "500px", borderStyle:"solid"}} src={info.flags.svg} alt="flag" />
+          <img className="coatArms" style={{width: "200px"}} src={info.coatOfArms.svg} alt="coatofarms" /></span>
+          
           <p>Capital: {info.capital}</p>
           <p>Continent: {info.region}</p>
           <p>Population: {info.population}</p>
           <p>Timezone: {info.timezones}</p>
           <p>Abbreviation: {info.fifa}</p>
-        <Map className="countryMap" info={info} />
+        <Map info={info} />
         </div>
       ) : null}
       </div>
