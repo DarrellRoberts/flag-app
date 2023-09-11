@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Map from "./Map"
 
 export default function Flag() {
   const [info, setInfo] = useState({});
@@ -27,13 +28,16 @@ export default function Flag() {
   console.log(info);
   return (
     <>
+            <div className="flagContainer">
       {info.name ? (
         <div className="description">
           <h2>{info.name.common}</h2>
           <p>Capital: {info.capital}</p>
           <p>{info.fifa}</p>
+        <Map className="countryMap" info={info} />
         </div>
       ) : null}
+      </div>
     </>
   );
 }
