@@ -37,7 +37,7 @@ export default function Flag() {
           
           <p>Capital: {info.capital}</p>
           <p>Continent: {info.region}</p>
-          <p>Population: {info.population}</p>
+          <p>Population: {info.population.toLocaleString()}</p>
           <p>Timezone: {info.timezones}</p>
           <p>Abbreviation: {info.fifa}</p>
         <Map info={info} />
