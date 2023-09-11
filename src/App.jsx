@@ -6,21 +6,9 @@ import Flag from './components/Flag';
 import Layout from './components/Layout';
 
 function App() {
-  const [country, setCountry] = useState([]);
-
-  const fetchCountry = async () => {
-    const res = await fetch('https://restcountries.com/v3.1/all');
-    const data = await res.json();
-    setCountry(data);
-  };
-
-  useEffect(() => {
-    fetchCountry();
-  }, []);
-
   return (
     <div className="app">
-      {country.map((info, index) => <Flag key={index} info={info} />)}
+      <Flag />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Homepage />} />
