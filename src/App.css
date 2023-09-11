@@ -23,6 +23,11 @@ header {
   box-shadow: 0 0 5px 2px lightgray;
 }
 
+.container-homepage {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
 .logo h2 {
   margin: 0;
   padding: 0;
