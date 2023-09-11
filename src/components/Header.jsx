@@ -1,9 +1,7 @@
 import { AudioOutlined } from '@ant-design/icons';
 import { Input, Space } from 'antd';
-import { useState } from 'react';
-const Header = () => {
-  const [searchValue, setSearchValue] = useState('');
 
+const Header = ({ setSearchValue, searchValue }) => {
   const { Search } = Input;
   const recognition = new window.webkitSpeechRecognition();
   recognition.continuous = false;
@@ -38,7 +36,7 @@ const Header = () => {
       <div className="search">
         <Space direction="vertical">
           <Search
-            placeholder="input search text"
+            placeholder="Search by country"
             enterButton="Search"
             size="large"
             suffix={suffix}
