@@ -18,18 +18,8 @@ export default function Map({ info }) {
   console.log(longitude, latitude);
   return (
     <>
-      <div
-        className="mapButton"
-        style={{
-          padding: "10px",
-          borderRadius: "20px",
-          fontSize: "1rem",
-          width: "15%",
-        }}
-      >
         {" "}
         {fetchCoordinates()}
-      </div>
       {showMap && (
         <MapContainer
           center={[longitude, latitude]}
