@@ -1,29 +1,23 @@
-import { useState, useEffect } from 'react';
 import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import Homepage from './components/Homepage';
 import Flag from './components/Flag';
 import Layout from './components/Layout';
+import { useState } from 'react';
 
 function App() {
-  const [country, setCountry] = useState([]);
+  const [searchValue, setSearchValue] = useState('');
 
-  const fetchCountry = async () => {
-    const res = await fetch('https://restcountries.com/v3.1/all');
-    const data = await res.json();
-    setCountry(data);
-  };
-
-  useEffect(() => {
-    fetchCountry();
-  }, []);
-
-  console.log(country);
   return (
     <div className="app">
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Homepage />} />
+        <Route
+          path="/"
+          element={
+            <Layout setSearchValue={setSearchValue} searchValue={searchValue} />
+          }
+        >
+          <Route index element={<Homepage searchValue={searchValue} />} />
           <Route path="/:country" element={<Flag />} />
         </Route>
       </Routes>
