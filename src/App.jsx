@@ -10,7 +10,6 @@ function App() {
 
   return (
     <div className="app">
-      <Flag />
       <Routes>
         <Route
           path="/"
@@ -19,12 +18,16 @@ function App() {
           }
         >
           <Route index element={<Homepage searchValue={searchValue} />} />
+<<<<<<< HEAD
           <Route
             path="/:country"
             element={
               <Flag setSearchValue={setSearchValue} searchValue={searchValue} />
             }
           />
+=======
+          <Route path="/:country" element={<Flag searchValue={searchValue} />} />
+>>>>>>> aed53f0d86e037bd29554a258e9d9ce9ff5f621c
         </Route>
       </Routes>
     </div>
