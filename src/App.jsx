@@ -18,9 +18,9 @@ function App() {
     fetchCountry();
   }, []);
 
-  console.log(country);
   return (
     <div className="app">
+      {country.map((info, index) => <Flag key={index} info={info} />)}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Homepage />} />
