@@ -1,7 +1,7 @@
 import Map from "./Map";
 import { useEffect, useState } from "react";
 
-export default function Flag() {
+export default function Flag({searchValue}) {
     const [country, setCountry ] = useState([])
     const fetchCountry = async () => {
         const res = await fetch("https://restcountries.com/v3.1/all")
@@ -11,11 +11,10 @@ export default function Flag() {
       useEffect(() => {
         fetchCountry();
       }, []);
-      const NepalArray = country.filter((item) => item.name.common.includes("Nepal"));
-      // const filteredArray = country.filter((item) => item.name.common.includes({searchValue}))
+      const filteredArray = country.filter((item) => item.name.common.includes({searchValue}))
     return (
         <>
-              {NepalArray.map((info, index) => <Map key={index} info={info} />)}
+              {filteredArray.map((info, index) => <Map key={index} info={info} />)}
         </>
     )
 }
