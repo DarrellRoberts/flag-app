@@ -1,6 +1,3 @@
 export default function Homepage() {
-return (
-    <>
-    </>
-)
+  return <main>main</main>;
 }
