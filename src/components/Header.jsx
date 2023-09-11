@@ -1,8 +1,11 @@
 import { AudioOutlined } from '@ant-design/icons';
 import { Input, Space } from 'antd';
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = ({ setSearchValue, searchValue }) => {
   const { Search } = Input;
+  const [value, setValue] = useState('');
   const recognition = new window.webkitSpeechRecognition();
   recognition.continuous = false;
   recognition.lang = 'en-US';
@@ -27,22 +30,26 @@ const Header = ({ setSearchValue, searchValue }) => {
   const onSearch = (value, _e, info) => {
     console.log(info?.source, value);
     setSearchValue(value);
+    setValue('');
   };
   return (
     <header>
       <div className="logo">
-        <h2>World Countries Info</h2>
+        <Link to="/" className="link">
+          <h2>World Countries Info</h2>
+        </Link>
       </div>
       <div className="search">
         <Space direction="vertical">
           <Search
+            id="searchField"
             placeholder="Search by country"
             enterButton="Search"
             size="large"
             suffix={suffix}
             onSearch={onSearch}
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
           />
         </Space>
       </div>
