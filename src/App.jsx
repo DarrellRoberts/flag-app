@@ -6,10 +6,12 @@ import Layout from './components/Layout';
 import { useState } from 'react';
 
 function App() {
+
   const [searchValue, setSearchValue] = useState('');
 
   return (
     <div className="app">
+      <Flag />
       <Routes>
         <Route
           path="/"
