@@ -20,7 +20,7 @@ export default function Map({info}) {
     return (
         <>
         <button className="mapButton" style={{padding: "10px", borderRadius: "20px", fontSize: "1rem", width:"15%"}}onClick={fetchCoordinates}> Click Here to view the map</button>
-        {showMap && (<MapContainer center={[longitude,latitude]} zoom={6}  scrollWheelZoom={false} style={{ height: '400px', width: '35%', borderStyle: "solid", borderColor: "black", borderRadius: "20px"}}>
+        {showMap && (<MapContainer center={[longitude,latitude]} zoom={4}  scrollWheelZoom={false} style={{ height: '400px', width: '35%', borderStyle: "solid", borderColor: "black", borderRadius: "20px"}}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
