@@ -11,10 +11,11 @@ export default function Flag() {
       useEffect(() => {
         fetchCountry();
       }, []);
-      console.log(country);
+      const NepalArray = country.filter((item) => item.name.common.includes("Nepal"));
+      // const filteredArray = country.filter((item) => item.name.common.includes({searchValue}))
     return (
         <>
-              {country.map((info, index) => <Map key={index} info={info} />)}
+              {NepalArray.map((info, index) => <Map key={index} info={info} />)}
         </>
     )
 }
