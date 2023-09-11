@@ -11,7 +11,6 @@ function App() {
 
   return (
     <div className="app">
-      <Flag />
       <Routes>
         <Route
           path="/"
@@ -20,7 +19,7 @@ function App() {
           }
         >
           <Route index element={<Homepage searchValue={searchValue} />} />
-          <Route path="/:country" element={<Flag />} />
+          <Route path="/:country" element={<Flag searchValue={searchValue} />} />
         </Route>
       </Routes>
     </div>
