@@ -1,8 +1,7 @@
-# React + Vite
+# Flag App - One Day Hackathon Competition Winner 2023
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An app that displays all the countries in the world along with specific details about each one (for example: flag, population, capital, abbreviation ect.)
 
-Currently, two official plugins are available:
+This was our group project created in one day as part of a Hackathon competition. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Our project won due to the votes of all the participants, including the judges.
